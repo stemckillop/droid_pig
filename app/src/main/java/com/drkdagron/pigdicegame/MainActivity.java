@@ -172,8 +172,8 @@ public class MainActivity extends AppCompatActivity implements IGameRules {
         UpdateTurn();
         UpdateScores();
 
-        p1NameText.setText(p1Name + " Score: " + String.valueOf(p1Score));
-        p2NameText.setText(p2Name + " Score: " + String.valueOf(p2Score));
+        p1NameText.setText(p1Name);
+        p2NameText.setText(p2Name);
 
         gameStarted = true;
     }
@@ -211,16 +211,18 @@ public class MainActivity extends AppCompatActivity implements IGameRules {
             if (turnRoll == 1) {
                 p1Turn = !p1Turn;
                 turnScore = 0;
-                AlertDialog.Builder build = new AlertDialog.Builder(this);
-                build.setTitle("1 was rolled").setMessage("Your turn is over").setNegativeButton("Ok", null).show();
                 UpdateTurn();
                 UpdateTurnScore();
             } else {
                 turnScore += turnRoll;
-                AlertDialog.Builder build = new AlertDialog.Builder(this);
-                build.setTitle(String.valueOf(turnRoll) + " was rolled").setMessage("Current turn score is: " + turnScore).setNegativeButton("Ok", null).show();
                 UpdateTurnScore();
             }
+            Bundle bundle = new Bundle();
+            bundle.putInt("roll", turnRoll);
+            bundle.putInt("turn", turnScore);
+            DialogFragment roll = new DiceRollDialog();
+            roll.setArguments(bundle);
+            roll.show(getFragmentManager(), "diceroll");
         }
     }
 
