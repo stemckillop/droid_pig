@@ -8,48 +8,80 @@
     tools:context="com.drkdagron.pigdicegame.MainActivity">
 
     <LinearLayout
-        android:id="@+id/layout_scoreinfo"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical"
-        android:layout_above="@+id/cardView">
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
 
-        <TextView
-            android:id="@+id/txt_win"
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_p1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="First to 100 Wins!" />
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/txt_player1"
+            <TextView
+                android:id="@+id/txt_player1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center_horizontal"
+                android:text="adsgsdfasgasd"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_player1_score"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="100"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_p2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp" />
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/txt_player2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp" />
+            <TextView
+                android:id="@+id/txt_player2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center_horizontal"
+                android:text="adsgsdfasgasd"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/txt_player2_score"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="100"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/layout_buttons"
-        android:layout_margin="8dp">
+        android:layout_height="150dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
 
         <LinearLayout
             android:id="@+id/layout_gameinfo"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_above="@+id/layout_buttons"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -74,33 +106,114 @@
                 android:text="Turn Total: 0"
                 android:textSize="24sp"
                 android:textStyle="bold|italic" />
+
+            <LinearLayout
+                android:id="@+id/layout_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_hold_player"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Hold" />
+
+                <Button
+                    android:id="@+id/btn_roll_dice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Roll" />
+
+            </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_margin="8dp"
-        android:orientation="horizontal"
-        android:id="@+id/layout_buttons">
+        android:layout_below="@+id/cardView"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
 
-        <Button
-            android:id="@+id/btn_hold_player"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="HoldRoll"
-            android:text="Hold" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn_roll_dice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Roll" />
+            <LinearLayout
+                android:id="@+id/layout_scoreinfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentTop="false"
+                android:orientation="vertical">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="4dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="4dp"
+                    android:text="Instructions:" />
+
+                <TextView
+                    android:id="@+id/txt_instruct_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="4dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="4dp"
+                    android:text="If the player rolls a 1, they score nothing and it becomes the next player's turn." />
+
+                <TextView
+                    android:id="@+id/txt_instruct_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="4dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="4dp"
+                    android:text="If the player rolls any other number, it is added to their turn total and the player's turn continues." />
+
+                <TextView
+                    android:id="@+id/txt_instruct_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="4dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="4dp"
+                    android:text="If the player rolls any other number, it is added to their turn total and the player's turnIf a player chooses to &quot;hold&quot;, their turn total is added to their score, and it becomes the next player's turn" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="4dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="4dp"
+                    android:text="The first player to score 100 or more points wins." />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </android.support.v7.widget.CardView>
+
 </RelativeLayout>
