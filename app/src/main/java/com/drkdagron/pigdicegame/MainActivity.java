@@ -130,8 +130,8 @@ public class MainActivity extends AppCompatActivity implements IGameRules {
         super.onResume();
         SharedPreferences shared = getSharedPreferences("pigPrefs", MODE_PRIVATE);
         if (shared.getBoolean("gameSaved", false)) {
-            p1Name = shared.getString("p1Name", "");
-            p2Name = shared.getString("p2Name", "");
+            p1Name = shared.getString("p1Name", "Player 1");
+            p2Name = shared.getString("p2Name", "Player 2");
             p1Score = shared.getInt("p1Score", 0);
             p2Score = shared.getInt("p2Score", 0);
             p1Turn = shared.getBoolean("currTurn", false);
@@ -140,6 +140,8 @@ public class MainActivity extends AppCompatActivity implements IGameRules {
             UpdateScores();
             UpdateTurnScore();
             UpdateTurn();
+            p1NameText.setText(p1Name);
+            p2NameText.setText(p2Name);
         }
     }
 
